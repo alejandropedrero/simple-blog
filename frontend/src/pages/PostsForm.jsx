@@ -1,14 +1,48 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { Form, Formik } from "formik";
-import { createPostRequest } from "../api/posts.api";
+import { createPostRequest, getPostRequest } from "../api/posts.api";
+import { useParams } from "react-router-dom";
 
 // Form crea el formulario y Formik mantiene el estado con los initialValues y las propiedades
 
 function PostsForm() {
+  const [post, setPost] = useState({
+    title: "",
+    content: "",
+  });
+
+  const getPost = async (id) => {
+    try {
+      const response = await getPostRequest(id);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const params = useParams();
+
+  useEffect(() => {
+    const loadPost = async () => {
+      if (params.id) {
+        const post = await getPost(params.id);
+        console.log(post);
+        setPost({
+          title: post.title,
+          content: post.content,
+        });
+      }
+    };
+    loadPost();
+  }, []);
+
   return (
     <div>
+      <h1>{params.id ? "Editar post" : "Crear post"}</h1>
+
       <Formik
-        initialValues={{ title: "", content: "" }}
+        initialValues={post}
+        enableReinitialize={true}
         onSubmit={async (values, actions) => {
           console.log(values);
           try {

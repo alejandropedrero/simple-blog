@@ -1,7 +1,9 @@
 import React from "react";
 import { deletePostRequest } from "../api/posts.api";
+import { useNavigate } from "react-router-dom";
 
 function PostCard({ post }) {
+  const navigate = useNavigate();
   const handleDelete = async (id) => {
     try {
       const response = await deletePostRequest(id);
@@ -19,7 +21,7 @@ function PostCard({ post }) {
         <img src="x"></img>
       </div>
       <span>{post.created}</span>
-      <button>Editar</button>
+      <button onClick={() => navigate(`/edit/${post.id}`)}>Editar</button>
       <button onClick={() => handleDelete(post.id)}>Eliminar</button>
     </div>
   );

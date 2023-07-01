@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PostsPage />} />
         <Route path="/new" element={<PostsForm />} />
+        <Route path="/edit/:id" element={<PostsForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
