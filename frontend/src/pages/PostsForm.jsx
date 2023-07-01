@@ -1,11 +1,18 @@
 import { React, useEffect, useState } from "react";
 import { Form, Formik } from "formik";
-import { createPostRequest, getPostRequest } from "../api/posts.api";
-import { useParams } from "react-router-dom";
+import {
+  createPostRequest,
+  getPostRequest,
+  updatePostRequest,
+} from "../api/posts.api";
+import { useParams, useNavigate } from "react-router-dom";
 
 // Form crea el formulario y Formik mantiene el estado con los initialValues y las propiedades
 
 function PostsForm() {
+  const params = useParams();
+  const navigate = useNavigate();
+
   const [post, setPost] = useState({
     title: "",
     content: "",
@@ -20,7 +27,23 @@ function PostsForm() {
     }
   };
 
-  const params = useParams();
+  const createPost = async (values) => {
+    try {
+      const response = await createPostRequest(values);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const updatePost = async (id, newData) => {
+    try {
+      const response = await updatePostRequest(id, newData);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     const loadPost = async () => {
@@ -43,15 +66,17 @@ function PostsForm() {
       <Formik
         initialValues={post}
         enableReinitialize={true}
-        onSubmit={async (values, actions) => {
+        onSubmit={async (values) => {
           console.log(values);
-          try {
-            const response = await createPostRequest(values);
-            console.log(response);
-            actions.resetForm();
-          } catch (error) {
-            console.error(error);
+
+          if (params.id) {
+            await updatePost(params.id, values);
+            navigate("/");
+          } else {
+            await createPost(values);
+            navigate("/");
           }
+          setPost({ title: "", content: "" });
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
