@@ -13,12 +13,18 @@ function PostsPage() {
     loadPosts();
   }, []);
 
+  function renderMain() {
+    if (posts.length === 0) {
+      return <h1>No hay nada por aquí</h1>;
+    }
+
+    return posts.map((post) => <PostCard post={post} key={post.id} />);
+  }
+
   return (
     <div>
       <h1>Posts</h1>
-      {posts.map((post) => (
-        <PostCard post={post} key={post.id} />
-      ))}
+      {renderMain()}
     </div>
   );
 }
