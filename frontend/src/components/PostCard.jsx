@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { deletePostRequest } from "../api/posts.api";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../public/f-logo.png";
+import Logo from "../img/f-logo.png";
 import Delete from "../img/delete.png";
 import Edit from "../img/edit.png";
 import "../App.css";
@@ -26,6 +26,12 @@ function PostCard({ post, onDelete }) {
     }
   };
 
+  const handleTitleClick = () => {
+    navigate(`/post/${post.id}`);
+  };
+
+  const previewContent = post.content.substring(0, 50) + "...";
+
   return (
     <div className="card mb-4">
       <div className="d-flex justify-content-center align-items-center p-3">
@@ -33,8 +39,15 @@ function PostCard({ post, onDelete }) {
       </div>
 
       <div className="card-body">
-        <h3 className="card-title">{post.title}</h3>
-        <p className="card-text">{post.content}</p>
+        <a className="post-title text-black">
+          <h3 className="card-title" onClick={handleTitleClick}>
+            {post.title}
+          </h3>
+        </a>
+
+        <p className="card-text" onClick={handleTitleClick}>
+          {previewContent} <span className="read-more">(Leer más)</span>
+        </p>
         <p className="card-text small text-black-50 fw-semibold">
           Fecha: {post.created}
         </p>
