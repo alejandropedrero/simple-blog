@@ -81,25 +81,38 @@ function PostsForm() {
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form onSubmit={handleSubmit}>
-            <label>Título</label>
-            <input
-              type="text"
-              name="title"
-              placeholder="Escribe un título"
-              onChange={handleChange}
-              value={values.title}
-            ></input>
+            <div>
+              <label>Título</label>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="title"
+                placeholder="Escribe un título"
+                onChange={handleChange}
+                value={values.title}
+              ></input>
+            </div>
 
-            <label>Contenido</label>
-            <textarea
-              name="content"
-              rows="3"
-              placeholder="Y aquí el contenido"
-              onChange={handleChange}
-              value={values.content}
-            ></textarea>
+            <div>
+              <label>Contenido</label>
+            </div>
+            <div>
+              <textarea
+                name="content"
+                rows="10"
+                cols="60"
+                placeholder="Y aquí el contenido"
+                onChange={handleChange}
+                value={values.content}
+              ></textarea>
+            </div>
 
-            <button type="submit" disabled={isSubmitting}>
+            <button
+              className="btn btn-success"
+              type="submit"
+              disabled={isSubmitting}
+            >
               {isSubmitting ? "Guardando ..." : "Guardar"}
             </button>
           </Form>
