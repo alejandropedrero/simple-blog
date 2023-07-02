@@ -60,7 +60,7 @@ function PostsForm() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>{params.id ? "Editar post" : "Crear post"}</h1>
 
       <Formik
@@ -100,7 +100,7 @@ function PostsForm() {
             ></textarea>
 
             <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Enviando ..." : "Enviado"}
+              {isSubmitting ? "Guardando ..." : "Guardar"}
             </button>
           </Form>
         )}

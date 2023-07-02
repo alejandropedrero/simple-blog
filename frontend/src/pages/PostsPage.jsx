@@ -15,14 +15,22 @@ function PostsPage() {
 
   function renderMain() {
     if (posts.length === 0) {
-      return <h1>No hay nada por aquí</h1>;
+      return (
+        <div>
+          <h3>No hay nada por aquí</h3>
+          <p>
+            Puedes crear el primer post desde el enlace 'Crear post' en la barra
+            de navegación
+          </p>
+        </div>
+      );
     }
 
     return posts.map((post) => <PostCard post={post} key={post.id} />);
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>Posts</h1>
       {renderMain()}
     </div>
