@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
 import {
   createPostRequest,
@@ -6,8 +6,6 @@ import {
   updatePostRequest,
 } from "../api/posts.api";
 import { useParams, useNavigate } from "react-router-dom";
-
-// Form crea el formulario y Formik mantiene el estado con los initialValues y las propiedades
 
 function PostsForm() {
   const params = useParams();
@@ -57,7 +55,7 @@ function PostsForm() {
       }
     };
     loadPost();
-  }, []);
+  }, [params.id]);
 
   return (
     <div className="container">
@@ -91,7 +89,7 @@ function PostsForm() {
                 placeholder="Escribe un título"
                 onChange={handleChange}
                 value={values.title}
-              ></input>
+              />
             </div>
 
             <div>
@@ -105,7 +103,7 @@ function PostsForm() {
                 placeholder="Y aquí el contenido"
                 onChange={handleChange}
                 value={values.content}
-              ></textarea>
+              />
             </div>
 
             <button

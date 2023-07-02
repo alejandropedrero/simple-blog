@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { deletePostRequest } from "../api/posts.api";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../public/f-logo.png";
@@ -6,31 +6,30 @@ import Delete from "../img/delete.png";
 import Edit from "../img/edit.png";
 import "../App.css";
 
-function PostCard({ post }) {
+function PostCard({ post, onDelete }) {
   const navigate = useNavigate();
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
   const handleDelete = async (id) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this post?"
-    );
+    setShowConfirmation(true);
+  };
 
-    if (confirmed) {
-      try {
-        const response = await deletePostRequest(id);
-        console.log(response);
-
-        // Optional: You can add additional logic here, such as showing a success message
-      } catch (error) {
-        console.error(error);
-
-        // Optional: You can handle error scenarios here, such as showing an error message
-      }
+  const confirmDelete = async (id) => {
+    try {
+      const response = await deletePostRequest(id);
+      console.log(response);
+      onDelete(id);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setShowConfirmation(false);
     }
   };
 
   return (
     <div className="card mb-4">
       <div className="d-flex justify-content-center align-items-center p-3">
-        <img className="card-img-top" src={Logo}></img>
+        <img className="card-img-top" src={Logo} alt="Logo" />
       </div>
 
       <div className="card-body">
@@ -55,6 +54,31 @@ function PostCard({ post }) {
           </button>
         </div>
       </div>
+
+      {/* Modal para confirmar el borrado del post */}
+      {showConfirmation && (
+        <div className="custom-modal">
+          <div className="modal-overlay" />
+          <div className="modal-content">
+            <h5>Confirma la acción</h5>
+            <p>¿Estás seguro de que quieres eliminar el post?</p>
+            <div className="modal-buttons">
+              <button
+                className="cancel-button"
+                onClick={() => setShowConfirmation(false)}
+              >
+                Cancelar
+              </button>
+              <button
+                className="delete-button"
+                onClick={() => confirmDelete(post.id)}
+              >
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
