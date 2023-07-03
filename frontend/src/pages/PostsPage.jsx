@@ -30,9 +30,11 @@ function PostsPage() {
           </p>
         </div>
       ) : (
-        posts.map((post) => (
-          <PostCard post={post} key={post.id} onDelete={handlePostDelete} />
-        ))
+        <div className="post-grid">
+          {posts.map((post) => (
+            <PostCard post={post} key={post.id} onDelete={handlePostDelete} />
+          ))}
+        </div>
       )}
     </div>
   );
