@@ -48,11 +48,14 @@ function PostPage() {
     return <div>Loading...</div>;
   }
 
+  const imageUrl = post.img ? `http://localhost:4000/${post.img}` : Logo;
+  const formattedDate = new Date(post.created).toLocaleDateString();
+
   return (
     <div className="container">
       <div className="card mb-4">
         <div className="d-flex justify-content-center align-items-center p-3">
-          <img className="card-img-top" src={Logo} alt="Logo" />
+          <img className="card-img-top" src={imageUrl} alt="Logo" />
         </div>
 
         <div className="card-body">
@@ -62,7 +65,7 @@ function PostPage() {
 
           <p className="card-text">{post.content}</p>
           <p className="card-text small text-black-50 fw-semibold">
-            Fecha: {post.created}
+            Fecha: {formattedDate}
           </p>
           <div className="d-flex gap-1">
             <button
