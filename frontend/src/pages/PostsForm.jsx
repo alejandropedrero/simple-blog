@@ -129,7 +129,7 @@ function PostsForm() {
             </div>
 
             <button type="submit" className="btn btn-primary mt-3">
-              {params.id ? "Actualizar" : "Crear"}
+              {params.id ? "Guardar" : "Crear"}
             </button>
           </Form>
         )}
