@@ -20,7 +20,7 @@ Cada entrada requiere un título, un cuerpo o contenido y una imagen. Todos esto
 
 ## Dependencias
 
-### Backend
+> ### Backend
 
 multer - Para la subida de imágenes y almacenamiento en la carpeta public/upload
 
@@ -36,7 +36,7 @@ express - Para node.js
 
 nodemon - Para el desarrollo y no tener que lanzar el servidor con cada cambio
 
-### Frontend
+> ### Frontend
 
 axios - Para realizar las peticiones HTTP
 
