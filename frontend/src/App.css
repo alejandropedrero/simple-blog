@@ -20,6 +20,7 @@
   height: 200px;
   border-radius: 4%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .custom-modal {

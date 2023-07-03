@@ -38,7 +38,12 @@ function PostCard({ post, onDelete }) {
   return (
     <div className="card mb-4">
       <div className="d-flex justify-content-center align-items-center p-3">
-        <img className="card-img-top" src={imageUrl} alt="Logo" />
+        <img
+          className="card-img-top"
+          src={imageUrl}
+          alt="Logo"
+          onClick={handleTitleClick}
+        />
       </div>
 
       <div className="card-body">
