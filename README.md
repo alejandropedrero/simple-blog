@@ -23,14 +23,24 @@ Cada entrada requiere un título, un cuerpo o contenido y una imagen. Todos esto
 ### Backend
 
 multer - Para la subida de imágenes y almacenamiento en la carpeta public/upload
+
+
 mysql2 - Para la conexión con la base de datos
+
+
 cors - Para la api
+
+
 express - Para node.js
+
+
 nodemon - Para el desarrollo y no tener que lanzar el servidor con cada cambio
 
 ### Frontend
 
 axios - Para realizar las peticiones HTTP
+
+
 formik - Para ayudar con la validación de los formularios
 
 ## Maquetado
