@@ -65,3 +65,7 @@ La mayoría de problemas en mi caso tuvieron lugar en todo lo relacionado con Re
 Para el backend la implementación fue similar a la del proyecto del Bootcamp con lo cual el proceso fue más rápido, exceptuando la parte de subir imágenes a una carpeta del proyecto para almacenarlas y después mostrarlas que sí me resulto bastante complicada. La ayuda de compañeros que proporcionaron información acerca del paquete multer ayudó.
 
 Para solucionar los problemas en los momentos en los que necesitaba ayuda utilicé tutoriales de Youtube y ChatGPT.
+
+## Aspectos a mejorar
+
+Tengo que repasar todo, especialmente React. Me han quedado cosas por implementar que me hubieran gustado, pero creo que como mejora personal me vendría mejor volver a crear un proyecto similar de nuevo que continuar con este. Principalmente por poder hacerlo con más calma, estructurarlo de la mejor forma posible y comprender mejor el proceso y funcionamiento. También porque aprendo mucho por repetición.
