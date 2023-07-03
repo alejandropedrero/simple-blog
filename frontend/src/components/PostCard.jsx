@@ -7,6 +7,8 @@ import Edit from "../img/edit.png";
 import "../App.css";
 
 function PostCard({ post, onDelete }) {
+  const imageUrl = post.img ? `http://localhost:4000/${post.img}` : Logo;
+
   const navigate = useNavigate();
   const [showConfirmation, setShowConfirmation] = useState(false);
 
@@ -31,11 +33,12 @@ function PostCard({ post, onDelete }) {
   };
 
   const previewContent = post.content.substring(0, 50) + "...";
+  const formattedDate = new Date(post.created).toLocaleDateString();
 
   return (
     <div className="card mb-4">
       <div className="d-flex justify-content-center align-items-center p-3">
-        <img className="card-img-top" src={Logo} alt="Logo" />
+        <img className="card-img-top" src={imageUrl} alt="Logo" />
       </div>
 
       <div className="card-body">
@@ -49,7 +52,7 @@ function PostCard({ post, onDelete }) {
           {previewContent} <span className="read-more">(Leer más)</span>
         </p>
         <p className="card-text small text-black-50 fw-semibold">
-          Fecha: {post.created}
+          Fecha: {formattedDate}
         </p>
         <div className="d-flex gap-1">
           <button

@@ -87,8 +87,10 @@ function PostsForm() {
       >
         {({ setFieldValue, values }) => (
           <Form>
-            <div className="form-group">
-              <label htmlFor="title">Título</label>
+            <div className="form-group mt-3">
+              <label className="mb-3 fw-medium" htmlFor="title">
+                Título
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -96,21 +98,25 @@ function PostsForm() {
                 name="title"
                 onChange={(e) => setFieldValue("title", e.target.value)}
                 value={values.title}
+                required
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="content">Contenido</label>
+            <div className="form-group mt-3">
+              <label className="mb-3 fw-medium" htmlFor="content">
+                Contenido
+              </label>
               <textarea
                 className="form-control"
                 id="content"
                 name="content"
                 onChange={(e) => setFieldValue("content", e.target.value)}
                 value={values.content}
+                required
               ></textarea>
             </div>
 
-            <div className="form-group">
+            <div className="form-group mt-3">
               <label htmlFor="image">Imagen</label>
               <input
                 type="file"
@@ -118,10 +124,11 @@ function PostsForm() {
                 id="image"
                 name="image"
                 onChange={(e) => setFieldValue("image", e.target.files[0])}
+                required
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary mt-3">
               {params.id ? "Actualizar" : "Crear"}
             </button>
           </Form>
