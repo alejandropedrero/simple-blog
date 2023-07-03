@@ -6,7 +6,7 @@ El proyecto se compone de las carpetas del servidor y la de frontend.
 
 Dentro de server se encuentran las rutas con sus correspondientes controladores y los archivos para la conexión de la base de datos, de utilidad y el principal, index.js.
 
-El archivo sql para crear la base de datos se encuentra en la carpeta database. Contiene además un post base para que no comience el blog vacío.
+El archivo sql para crear la base de datos se encuentra en la carpeta database. Contiene además dos posts base para que no comience el blog vacío.
 
 La carpeta frontend contiene todo el código de React (creado con Vite).
 
@@ -39,7 +39,7 @@ formik - Para ayudar con la validación de los formularios
 
 ## Maquetado
 
-Utilicé Bootstrap ya que me encontré más cómodo que con Tailwind al ya conocerlo y tener práctica con esta librería después de haberla utilizado en el Bootcamp.
+Utilicé Bootstrap ya que me encontré más cómodo que con Tailwind al ya conocerlo y tener práctica con esta librería después de haberla utilizado en el Bootcamp. Algún retoque adicional con CSS.
 
 ## Uso
 
