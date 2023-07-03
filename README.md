@@ -1,6 +1,6 @@
 ﻿# simple-blog
 
-## Estructura
+## Estructura del proyecto
 
 El proyecto se compone de las carpetas del servidor y la de frontend.
 
@@ -45,11 +45,11 @@ Utilicé Bootstrap ya que me encontré más cómodo que con Tailwind al ya conoc
 
 Desde la raíz del proyecto ejecutar npm run dev y desde frontend también ejecutar npm run dev.
 
-## Partes
+## Partes de la aplicación 
 
 El blog se compone de una Navbar, la vista de los posts (global e individual) y un footer.
 
-Se puede crear un nuevo post, visualizarlo de forma individual, editarlo y borrarlo. Una vez eliminado el post su imagen asociada se borra también de la carpeta en la que se almacena (public/uploads).
+Se puede crear un nuevo post, visualizarlo de forma individual o global junto al resto, editarlo y borrarlo. Una vez eliminado el post su imagen asociada se borra también de la carpeta en la que se almacena (public/uploads).
 
 Cada entrada requiere un título, un cuerpo o contenido y una imagen. Todos estos campos son editables.
 
