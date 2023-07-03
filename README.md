@@ -16,7 +16,7 @@ Dentro de src están los archivos principales para ejecutar la aplicación, así
 
 > ### Backend
 
-multer - Para la subida de imágenes y almacenamiento en la carpeta public/upload
+multer - Para la subida de imágenes y almacenamiento en la carpeta public/uploads
 
 
 mysql2 - Para la conexión con la base de datos
