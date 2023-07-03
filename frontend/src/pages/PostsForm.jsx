@@ -120,7 +120,7 @@ function PostsForm() {
               <label htmlFor="image">Imagen</label>
               <input
                 type="file"
-                className="form-control-file"
+                className="form-control-file mx-2"
                 id="image"
                 name="image"
                 onChange={(e) => setFieldValue("image", e.target.files[0])}
@@ -128,7 +128,10 @@ function PostsForm() {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary mt-3">
+            <button
+              type="submit"
+              className="btn btn-primary upload-button mt-3"
+            >
               {params.id ? "Guardar" : "Crear"}
             </button>
           </Form>
