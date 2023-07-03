@@ -30,11 +30,12 @@ export const getPost = async (req, res) => {
 export const createPost = async (req, res) => {
   try {
     const { title, content } = req.body;
+    const imagePath = req.file ? req.file.path : ""; // Get the path of the uploaded image
     const [result] = await pool.query(
-      "INSERT INTO posts(title, content) VALUES (?, ?)",
-      [title, content]
+      "INSERT INTO posts(title, content, img) VALUES (?, ?, ?)",
+      [title, content, imagePath]
     );
-    res.json({ id: result.insertId, title, content });
+    res.json({ id: result.insertId, title, content, img: imagePath });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -42,16 +43,17 @@ export const createPost = async (req, res) => {
 
 export const updatePost = async (req, res) => {
   try {
-    const result = await pool.query("UPDATE posts SET ? WHERE id = ?", [
-      req.body,
-      req.params.id,
-    ]);
+    const { title, content } = req.body;
+    const imagePath = req.file ? req.file.path : ""; // Get the path of the uploaded image
+    const result = await pool.query(
+      "UPDATE posts SET title = ?, content = ?, img = ? WHERE id = ?",
+      [title, content, imagePath, req.params.id]
+    );
     res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
-
 export const deletePost = async (req, res) => {
   try {
     const [result] = await pool.query("DELETE FROM posts WHERE id = ?", [

@@ -14,6 +14,7 @@ function PostsForm() {
   const [post, setPost] = useState({
     title: "",
     content: "",
+    image: null,
   });
 
   const getPost = async (id) => {
@@ -65,53 +66,63 @@ function PostsForm() {
         initialValues={post}
         enableReinitialize={true}
         onSubmit={async (values) => {
-          console.log(values);
+          const formData = new FormData();
+          formData.append("title", values.title);
+          formData.append("content", values.content);
+          formData.append("image", values.image);
 
-          if (params.id) {
-            await updatePost(params.id, values);
+          try {
+            if (params.id) {
+              await updatePost(params.id, formData);
+              console.log("Post updated successfully!");
+            } else {
+              await createPost(formData);
+              console.log("Post created successfully!");
+            }
             navigate("/");
-          } else {
-            await createPost(values);
-            navigate("/");
+          } catch (error) {
+            console.error("Error:", error);
           }
-          setPost({ title: "", content: "" });
         }}
       >
-        {({ handleChange, handleSubmit, values, isSubmitting }) => (
-          <Form onSubmit={handleSubmit}>
-            <div>
-              <label>Título</label>
-            </div>
-            <div>
+        {({ setFieldValue, values }) => (
+          <Form>
+            <div className="form-group">
+              <label htmlFor="title">Título</label>
               <input
                 type="text"
+                className="form-control"
+                id="title"
                 name="title"
-                placeholder="Escribe un título"
-                onChange={handleChange}
+                onChange={(e) => setFieldValue("title", e.target.value)}
                 value={values.title}
               />
             </div>
 
-            <div>
-              <label>Contenido</label>
-            </div>
-            <div>
+            <div className="form-group">
+              <label htmlFor="content">Contenido</label>
               <textarea
+                className="form-control"
+                id="content"
                 name="content"
-                rows="10"
-                cols="60"
-                placeholder="Y aquí el contenido"
-                onChange={handleChange}
+                onChange={(e) => setFieldValue("content", e.target.value)}
                 value={values.content}
+              ></textarea>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="image">Imagen</label>
+              <input
+                type="file"
+                className="form-control-file"
+                id="image"
+                name="image"
+                onChange={(e) => setFieldValue("image", e.target.files[0])}
               />
             </div>
 
-            <button
-              className="btn btn-success"
-              type="submit"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Guardando ..." : "Guardar"}
+            <button type="submit" className="btn btn-primary">
+              {params.id ? "Actualizar" : "Crear"}
             </button>
           </Form>
         )}
