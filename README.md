@@ -47,7 +47,7 @@ Desde la raíz del proyecto ejecutar npm run dev y npm install y desde frontend 
 
 Backend - http://localhost:4000
 
-Frontend - http:localhost:5173
+Frontend - http://localhost:5173
 
 ## Partes de la aplicación 
 
