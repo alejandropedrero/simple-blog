@@ -103,12 +103,6 @@ footer {
   text-decoration: underline;
 }
 
-.post-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-}
-
 .upload-button {
   background-color: #337ab7;
   color: #fff;
@@ -121,4 +115,28 @@ footer {
 
 .upload-button:hover {
   background-color: #23527c;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Default: 1 post per row */
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .post-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 posts per row for medium screens and up */
+  }
+}
+
+@media (min-width: 1200px) {
+  .post-grid {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 3 posts per row for large screens and up */
+  }
 }
