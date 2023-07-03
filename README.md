@@ -1,16 +1,16 @@
 ﻿# simple-blog
 
-> Estructura
+## Estructura
 
 El proyecto se compone de las carpetas del servidor y la de frontend, que contiene todo el código de React (creado con Vite).
 
 El archivo sql para crear la base de datos se encuentra en la carpeta database.
 
-> Uso
+## Uso
 
 Desde la raíz del proyecto ejecutar npm run dev y desde frontend también ejecutar npm run dev.
 
-> Partes
+## Partes
 
 El blog se compone de una Navbar, la vista de los posts y un footer.
 
@@ -18,9 +18,9 @@ Se puede crear un nuevo post, visualizarlo de forma individual, editarlo y borra
 
 Cada entrada requiere un título, un cuerpo o contenido y una imagen. Todos estos campos son editables.
 
-> Maquetado
+## Maquetado
 
 Utilicé Bootstrap
 
-> Problemas, dificultades y soluciones
+## Problemas, dificultades y soluciones
 
