@@ -2,9 +2,15 @@
 
 ## Estructura
 
-El proyecto se compone de las carpetas del servidor y la de frontend, que contiene todo el código de React (creado con Vite).
+El proyecto se compone de las carpetas del servidor y la de frontend.
+
+Dentro de server se encuentran las rutas con sus correspondientes controladores y los archivos para la conexión de la base de datos, de utilidad y el principal, index.js.
 
 El archivo sql para crear la base de datos se encuentra en la carpeta database.
+
+La carpeta frontend contiene todo el código de React (creado con Vite).
+
+Dentro de src están los archivos principales para ejecutar la aplicación, así como carpetas para la api, imágenes como el logo, componentes y páginas.
 
 ## Uso
 
