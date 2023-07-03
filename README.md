@@ -45,6 +45,10 @@ Utilicé Bootstrap ya que me encontré más cómodo que con Tailwind al ya conoc
 
 Desde la raíz del proyecto ejecutar npm run dev y npm install y desde frontend también ejecutar npm run dev y npm install.
 
+Backend - http://localhost:4000
+
+Frontend - http:localhost:5173
+
 ## Partes de la aplicación 
 
 El blog se compone de una Navbar, la vista de los posts (global e individual) y un footer.
