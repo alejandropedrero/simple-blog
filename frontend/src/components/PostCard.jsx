@@ -49,7 +49,10 @@ function PostCard({ post, onDelete }) {
         </a>
 
         <p className="card-text" onClick={handleTitleClick}>
-          {previewContent} <span className="read-more">(Leer más)</span>
+          {previewContent}{" "}
+          <span className="read-more fw-semibold text-black-50">
+            (Leer más)
+          </span>
         </p>
         <p className="card-text small text-black-50 fw-semibold">
           Fecha: {formattedDate}
