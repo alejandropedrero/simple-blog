@@ -12,18 +12,6 @@ La carpeta frontend contiene todo el código de React (creado con Vite).
 
 Dentro de src están los archivos principales para ejecutar la aplicación, así como carpetas para la api, imágenes como el logo, componentes y páginas.
 
-## Uso
-
-Desde la raíz del proyecto ejecutar npm run dev y desde frontend también ejecutar npm run dev.
-
-## Partes
-
-El blog se compone de una Navbar, la vista de los posts (global e individual) y un footer.
-
-Se puede crear un nuevo post, visualizarlo de forma individual, editarlo y borrarlo. Una vez eliminado el post su imagen asociada se borra también de la carpeta en la que se almacena (public/uploads).
-
-Cada entrada requiere un título, un cuerpo o contenido y una imagen. Todos estos campos son editables.
-
 ## Dependencias
 
 > ### Backend
@@ -52,6 +40,19 @@ formik - Para ayudar con la validación de los formularios
 ## Maquetado
 
 Utilicé Bootstrap ya que me encontré más cómodo que con Tailwind al ya conocerlo y tener práctica con esta librería después de haberla utilizado en el Bootcamp.
+
+## Uso
+
+Desde la raíz del proyecto ejecutar npm run dev y desde frontend también ejecutar npm run dev.
+
+## Partes
+
+El blog se compone de una Navbar, la vista de los posts (global e individual) y un footer.
+
+Se puede crear un nuevo post, visualizarlo de forma individual, editarlo y borrarlo. Una vez eliminado el post su imagen asociada se borra también de la carpeta en la que se almacena (public/uploads).
+
+Cada entrada requiere un título, un cuerpo o contenido y una imagen. Todos estos campos son editables.
+
 
 ## Problemas, dificultades y soluciones
 
